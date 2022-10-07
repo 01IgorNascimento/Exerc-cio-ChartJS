@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementando o ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      #myChartCaixa {
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="myChartCaixa">
+        <canvas id="myChartGrafico1"></canvas>
+
+        <canvas id="myChartGrafico2"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const labelsGrafico1 = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
+  const labelsGrafico2 = [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+  ]
+
+  const dataGrafico1 = {
+    labels: labelsGrafico1,
+    datasets: [
+      {
+        label: "Temperatura",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+        data: [30, 29, 28, 25, 22, 23],
+      },
+      {
+        label: "Humidade",
+        backgroundColor: "rgb(0, 0, 255)",
+        borderColor: "rgb(0, 150, 255)",
+        data: [80, 82, 80, 85, 80, 83],
+      },
+    ],
+  }
+  const dataGrafico2 = {
+    labels: labelsGrafico2,
+    datasets: [
+      {
+        label: "Temperatura",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+        data: [22, 24, 27, 23, 20, 18],
+      },
+      {
+        label: "Humidade",
+        backgroundColor: "rgb(0, 0, 255)",
+        borderColor: "rgb(0, 150, 255)",
+        data: [90, 89, 93, 87, 88, 82],
+      },
+    ],
+  }
+  //a diferença de const para var é que o const tem um valor fixo
+
+  const configGrafico1 = {
+    type: "line",
+    data: dataGrafico1,
+    options: {},
+  }
+
+  const configGrafico2 = {
+    type: "bar",
+    data: dataGrafico2,
+    options: {},
+  }
+
+  const myChartGrafico1 = new Chart(
+    document.getElementById("myChartGrafico1"),
+    configGrafico1
+  )
+  const myChartGrafico2 = new Chart(
+    document.getElementById("myChartGrafico2"),
+    configGrafico2
+  )
+</script>
